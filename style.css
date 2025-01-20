@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,700;1,700&display=swap');
+
+:root {
+    --white: hsl(0, 0%, 100%);
+    --light-pink: hsl(275, 100%, 97%);
+    --grayish-purple: hsl(292, 16%, 49%);
+    --dark-purple: hsl(292, 42%, 14%);
+    --purple: hsl(281, 83%, 54%);
+    --purple-opacity: hsla(281, 83%, 54%, 0.16);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Work Sans", serif;
+    font-size: 16px;
+}
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url(./assets/images/background-pattern-desktop.svg) top/contain no-repeat, var(--light-pink);
+}
+.accordion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    max-width: 600px;
+    background-color: var(--white);
+    padding: 32px 32px 16px;
+    border-radius: 16px;
+    box-shadow: 6px 20px 80px 6px var(--purple-opacity);
+}
+.card-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    color: var(--dark-purple);
+    font-size: 56px;
+}
+.card-img {
+    width: 35px;
+    height: 35px;
+}
+.accordion-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    color: var(--dark-purple);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 18px 0;
+    cursor: pointer;
+    border-top: 1px solid var(--light-pink);
+    transition: all 0.2s ease 50ms;
+    line-height: 1.2;
+}
+.accordion-title:hover {
+    color: var(--purple);
+}
+.accordion-item:first-child .accordion-title {
+    border-top: none;
+}
+.accordion-button {
+    width: 28px;
+    height: 28px;
+}
+.open {
+    display: block;
+}
+.close {
+    display: none;
+}
+.accordion-content {
+    line-height: 1.48;
+    color: var(--grayish-purple);
+    transition: all 0.3s ease-in-out;
+    height: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+.accordion-title.active .open {
+    display: none;
+}
+.accordion-title.active .close {
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    section {
+        background-image: url(./assets/images/background-pattern-mobile.svg);
+        padding: 24px;
+    }
+    .accordion-card {
+        gap: 8px;
+    }
+    .card-title {
+        font-size: 42px;
+        gap: 20px;
+    }
+    .card-img {
+        width: 26px;
+        height: 26px;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .card-title {
+        font-size: 36px;
+        gap: 18px;
+    }
+    .accordion-title {
+        font-size: 16px;
+    }
+    .accordion-content {
+        font-size: 15px;
+    }
+}
